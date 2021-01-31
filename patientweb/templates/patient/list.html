@@ -1,0 +1,41 @@
+{% extends "patient/layout.html" %}
+
+{% block title %}
+Patients
+{% endblock %}
+
+{% block content %}
+<div class="container">
+<h1 class="text-center text-light bg-primary">BỆNH NHÂN</h1>
+<p>
+   <a class="btn btn-outline-success" href="http://127.0.0.1:8000/admin/patientweb/patient/add/">
+       create patient
+   </a>
+</p>
+    <table class="table table-bordered table table-secondary">
+        <tr class="table-info text-center">
+            <th>Id</th>
+            <th>fullname</th>
+            <th>age</th>
+            <th>diagnostic</th>
+            <th>anamnesis</th>
+<!--            <th>image</th>-->
+
+        </tr>
+        <tbody>
+        {% for item in Patients %}
+        <tr class="text-center" >
+            <td>{{ item.id }}</td>
+            <td>{{ item.fullname }}</td>
+            <td>{{ item.age }}</td>
+            <td>{{ item.diagnostic }}</td>
+            <td>{{ item.anamnesis }}</td>
+<!--            <td><img src=" {{item.image.url}}" width="100px" height="70px"/></td>-->
+
+
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
